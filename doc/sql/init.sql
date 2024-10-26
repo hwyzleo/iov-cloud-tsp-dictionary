@@ -20,8 +20,8 @@ CREATE TABLE `db_dictionary`.`tb_dictionary_category`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='数据字典分类';
 
-DROP TABLE IF EXISTS `db_dictionary`.`tb_dictionary_columns`;
-CREATE TABLE `db_dictionary`.`tb_dictionary_columns`
+DROP TABLE IF EXISTS `db_dictionary`.`tb_dictionary_column`;
+CREATE TABLE `db_dictionary`.`tb_dictionary_column`
 (
     `id`          BIGINT       NOT NULL AUTO_INCREMENT COMMENT '主键',
     `category_id` BIGINT       NOT NULL COMMENT '分类ID',
@@ -30,7 +30,8 @@ CREATE TABLE `db_dictionary`.`tb_dictionary_columns`
     `type`        VARCHAR(255) NOT NULL COMMENT '列类型',
     `len`         INT          NOT NULL COMMENT '列长度',
     `nullable`    TINYINT      NOT NULL COMMENT '列是否可为空',
-    `value_type`  SMALLINT     NOT NULL COMMENT '值类型',
+    `uniq`        TINYINT      NOT NULL COMMENT '列是否唯一',
+    `value_type`  SMALLINT     NOT NULL COMMENT '值类型：0-无限制，1-表关联',
     `value_range` VARCHAR(255)          DEFAULT NULL COMMENT '值范围',
     `sort`        INT          NOT NULL COMMENT '排序',
     `description` VARCHAR(255)          DEFAULT NULL COMMENT '备注',

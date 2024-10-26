@@ -15,6 +15,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>net.hwyz.iov.cloud.tsp</groupId>
+            <artifactId>dictionary-api</artifactId>
+            <version>${dictionary.version}</version>
+        </dependency>
+
         <!-- 框架: MySQL -->
         <dependency>
             <groupId>net.hwyz.iov.cloud.tsp</groupId>

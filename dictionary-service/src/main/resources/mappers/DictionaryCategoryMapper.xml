@@ -171,4 +171,41 @@
         WHERE t.row_valid = 1
         <!-- 添加自定义条件 -->
     </select>
+
+    <!-- 创建表 -->
+    <update id="createTable" parameterType="java.util.Map">
+        CREATE TABLE IF NOT EXISTS `tb_${tableName}` (
+            `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键',
+            <foreach collection="columns" item="column" index="index" separator=",">
+            `${column.code}` ${column.type}<if test="column.type='VARCHAR'">(${column.len})</if> <if test="column.nullable">DEFAULT</if><if test="!column.nullable">NOT</if> NULL COMMENT '${column.name}'
+            </foreach>,
+            PRIMARY KEY (`id`)
+            <if test="uniqueColumns.size > 0">
+            ,UNIQUE KEY (<foreach collection="uniqueColumns" item="column" index="index" separator=",">`${column}`</foreach>)
+            </if>
+        ) ENGINE = InnoDB
+        DEFAULT CHARSET = utf8mb4 COMMENT ='${tableDesc}';
+    </update>
+
+    <!-- 查询表 -->
+    <select id="selectTable" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        <foreach collection="columns" item="value" index="key" separator=",">
+            ${key} as ${value}
+        </foreach>
+        FROM `tb_${tableName}` t
+        <if test="whereConditions.size > 0">
+            WHERE
+            <if test="conditionSymbol = 'AND'">
+                <foreach collection="whereConditions" item="value" index="key" separator=" AND ">
+                    ${key} = ${value}
+                </foreach>
+            </if>
+            <if test="conditionSymbol = 'OR'">
+                <foreach collection="whereConditions" item="value" index="key" separator=" OR ">
+                    ${key} = ${value}
+                </foreach>
+            </if>
+        </if>
+    </select>
 </mapper>

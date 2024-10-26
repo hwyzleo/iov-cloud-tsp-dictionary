@@ -22,7 +22,7 @@
     <name>dictionary</name>
 
     <properties>
-        <vso.version>0.0.1-SNAPSHOT</vso.version>
+        <dictionary.version>0.0.1-SNAPSHOT</dictionary.version>
     </properties>
 
 </project>

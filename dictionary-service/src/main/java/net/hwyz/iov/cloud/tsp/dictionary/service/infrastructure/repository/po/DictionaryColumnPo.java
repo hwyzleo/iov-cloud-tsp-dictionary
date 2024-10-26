@@ -15,15 +15,15 @@ import lombok.experimental.SuperBuilder;
  * </p>
  *
  * @author hwyz_leo
- * @since 2024-10-25
+ * @since 2024-10-26
  */
 @Getter
 @Setter
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("tb_dictionary_columns")
-public class DictionaryColumnsPo extends BasePo {
+@TableName("tb_dictionary_column")
+public class DictionaryColumnPo extends BasePo {
 
     private static final long serialVersionUID = 1L;
 
@@ -67,13 +67,19 @@ public class DictionaryColumnsPo extends BasePo {
      * 列是否可为空
      */
     @TableField("nullable")
-    private Byte nullable;
+    private Boolean nullable;
+
+    /**
+     * 列是否唯一
+     */
+    @TableField("uniq")
+    private Boolean uniq;
 
     /**
      * 值类型
      */
     @TableField("value_type")
-    private Short valueType;
+    private Integer valueType;
 
     /**
      * 值范围
