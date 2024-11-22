@@ -10,19 +10,9 @@
         <module>dictionary-service</module>
     </modules>
 
-    <parent>
-        <groupId>net.hwyz.iov.cloud.tsp</groupId>
-        <artifactId>service-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
-
     <artifactId>dictionary</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <description>数据字典</description>
     <name>dictionary</name>
-
-    <properties>
-        <dictionary.version>0.0.1-SNAPSHOT</dictionary.version>
-    </properties>
 
 </project>
