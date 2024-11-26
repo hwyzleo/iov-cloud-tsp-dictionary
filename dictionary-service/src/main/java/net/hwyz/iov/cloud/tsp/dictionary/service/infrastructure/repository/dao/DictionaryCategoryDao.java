@@ -1,8 +1,8 @@
 package net.hwyz.iov.cloud.tsp.dictionary.service.infrastructure.repository.dao;
 
+import net.hwyz.iov.cloud.framework.mysql.dao.BaseDao;
 import net.hwyz.iov.cloud.tsp.dictionary.service.infrastructure.repository.po.DictionaryCategoryPo;
 import net.hwyz.iov.cloud.tsp.dictionary.service.infrastructure.repository.po.DictionaryColumnPo;
-import net.hwyz.iov.cloud.tsp.framework.mysql.dao.BaseDao;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
